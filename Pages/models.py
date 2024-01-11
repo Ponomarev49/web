@@ -51,12 +51,12 @@ def page_predictions():
                 knn = pickle.load(file)
             # with open('Models/bagging_model.pkl', 'rb') as file:
             #     bagging_model = pickle.load(file)
-            with open('Models/gradient_model.pkl', 'rb') as file:
-                gradient_model = pickle.load(file)
+            # with open('Models/gradient_model.pkl', 'rb') as file:
+            #     gradient_model = pickle.load(file)
             with open('Models/kmeans_model.pkl', 'rb') as file:
                 kmeans_model = pickle.load(file)
-            with open('Models/stacking_model.pkl', 'rb') as file:
-                stacking_model = pickle.load(file)
+            # with open('Models/stacking_model.pkl', 'rb') as file:
+            #     stacking_model = pickle.load(file)
             nn_model = load_model('Models/bin_class.h5')
 
             st.header("knn:")
