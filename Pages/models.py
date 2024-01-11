@@ -49,8 +49,8 @@ def page_predictions():
         if st.button('Сделать предсказание'):
             with open('Models/knn_model.pkl', 'rb') as file:
                 knn = pickle.load(file)
-            with open('Models/bagging_model.pkl', 'rb') as file:
-                bagging_model = pickle.load(file)
+            # with open('Models/bagging_model.pkl', 'rb') as file:
+            #     bagging_model = pickle.load(file)
             with open('Models/gradient_model.pkl', 'rb') as file:
                 gradient_model = pickle.load(file)
             with open('Models/kmeans_model.pkl', 'rb') as file:
@@ -63,21 +63,25 @@ def page_predictions():
             knn_pred = knn.predict(predict_input)[0]
             st.write(f"{knn_pred}")
 
-            st.header("bagging:")
-            bagging_pred = bagging_model.predict(predict_input)[0]
-            st.write(f"{bagging_pred}")
+            st.header("Stacking:")
+            stacking_pred = stacking_model.predict(predict_input)[0]
+            st.write(f"{stacking_pred}")
 
             st.header("gradient:")
             gradient_pred = gradient_model.predict(predict_input)[0]
             st.write(f"{gradient_pred}")
 
+            # st.header("bagging:")
+            # bagging_pred = bagging_model.predict(predict_input)[0]
+            # st.write(f"{bagging_pred}")
+
+
+
             st.header("Binary Classification:")
             nn_pred = int(nn_model.predict(predict_input, verbose=None))
             st.write(f"{nn_pred}")
 
-            st.header("Stacking:")
-            stacking_pred = stacking_model.predict(predict_input)[0]
-            st.write(f"{stacking_pred}")
+
 
             st.header("kmeans:")
             kmeans_pred = kmeans_model.predict(predict_input)[0]
