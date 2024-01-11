@@ -28,8 +28,8 @@ def page_predictions():
              'map': [author.data['map'].mode()[0]],
              'ct_health': [st.number_input("ct_health", min_value=1.0, max_value=500.0, step=20.0, value=100.0)],
              't_health': [st.number_input("t_health", min_value=1.0, max_value=500.0, step=20.0, value=100.0)],
-             'ct_armor': [author.data['ct_armor'].mean()],
-             't_armor': [author.data['t_armor'].mean()],
+             'ct_armor': [author.data['ct_armor'].mode()[0]],
+             't_armor': [author.data['t_armor'].mode()[0]],
              'ct_money': [author.data['ct_money'].mode()[0]],
              't_money': [author.data['t_money'].mode()[0]],
              'ct_helmets': [author.data['ct_helmets'].mode()[0]],
@@ -41,8 +41,7 @@ def page_predictions():
                                                  value=1.0)]})
         if 'Unnamed: 0' in predict_input.columns:
             predict_input = predict_input.drop(['Unnamed: 0'], axis=1)
-        for column in predict_input.columns:
-            predict_input[column] = predict_input[column].astype(float)
+
 
         st.write(predict_input)
 
