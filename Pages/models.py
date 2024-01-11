@@ -63,13 +63,13 @@ def page_predictions():
             knn_pred = knn.predict(predict_input)[0]
             st.write(f"{knn_pred}")
 
-            st.header("Stacking:")
-            stacking_pred = stacking_model.predict(predict_input)[0]
-            st.write(f"{stacking_pred}")
-
-            st.header("gradient:")
-            gradient_pred = gradient_model.predict(predict_input)[0]
-            st.write(f"{gradient_pred}")
+            # st.header("Stacking:")
+            # stacking_pred = stacking_model.predict(predict_input)[0]
+            # st.write(f"{stacking_pred}")
+            #
+            # st.header("gradient:")
+            # gradient_pred = gradient_model.predict(predict_input)[0]
+            # st.write(f"{gradient_pred}")
 
             # st.header("bagging:")
             # bagging_pred = bagging_model.predict(predict_input)[0]
