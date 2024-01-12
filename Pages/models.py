@@ -50,34 +50,41 @@ def page_predictions():
                 knn = pickle.load(file)
             with open('Models/kmeans_model.pkl', 'rb') as file:
                 kmeans_model = pickle.load(file)
-            nn_model = load_model('Models/bin_class.h5')
             with open('Models/bagging_model.pkl', 'rb') as file:
                 bagging_model = pickle.load(file)
             with open('Models/gradient_model.pkl', 'rb') as file:
                 gradient_model = pickle.load(file)
             with open('Models/stacking_model.pkl', 'rb') as file:
                 stacking_model = pickle.load(file)
+            nn_model = load_model('Models/bin_class.h5')
+
+            pred=[]
 
             st.header("Stacking:")
             stacking_pred = stacking_model.predict(predict_input)[0]
+            pred.append(stacking_pred)
             st.write(f"{stacking_pred}")
 
             st.header("gradient:")
             gradient_pred = gradient_model.predict(predict_input)[0]
+            pred.append(gradient_pred)
             st.write(f"{gradient_pred}")
 
             st.header("bagging:")
             bagging_pred = bagging_model.predict(predict_input)[0]
+            pred.append(bagging_pred)
             st.write(f"{bagging_pred}")
 
             st.header("knn:")
             knn_pred = knn.predict(predict_input)[0]
+            pred.append(knn_pred)
             st.write(f"{knn_pred}")
 
             st.header("Binary Classification:")
             nn_pred = int(nn_model.predict(predict_input, verbose=None))
+            pred.append(nn_pred)
             st.write(f"{nn_pred}")
 
-            st.header("kmeans:")
-            kmeans_pred = kmeans_model.predict(predict_input)[0]
-            st.write(f"{kmeans_pred}")
+            st.header("Final predict:")
+            predict_pd = pd.DataFrame(np.array(pred))
+            st.write(f"{predict_pd.mode()[0][0]}")
