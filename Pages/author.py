@@ -12,15 +12,15 @@ st.sidebar.title('Навигация:')
 page = st.sidebar.radio(
     "Выберите страницу",
     ("Разработчик", "Датасет", "Визуализация", "Инференс модели"),
-    key="navig"
+    key="navi"
 )
 
 # Загрузка датасета
-data = pd.read_csv('Data/cs_go.csv')
+data = pd.read_csv('Data/players.csv')
 if 'Unnamed: 0' in data.columns:
     data = data.drop(['Unnamed: 0'], axis=1)
-y_train = data['bomb_planted']
-X_train = data.drop(columns=['bomb_planted'])
+y_train = data['overall']
+X_train = data.drop(columns=['overall'])
 
 st.title('Расчётно графичесикая работа ML')
 

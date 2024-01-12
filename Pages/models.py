@@ -1,12 +1,17 @@
-import streamlit as st
-import pandas as pd
 import pickle
-from keras.models import load_model
+import joblib
 import numpy as np
-from sklearn.linear_model import LogisticRegression
-from sklearn.cluster import AgglomerativeClustering, KMeans, DBSCAN
+import pandas as pd
+import streamlit as st
+import tensorflow as tf
 
+import keras.models
 import author
+
+
+# import json
+# from keras.models import load_model
+# from tensorflow.python.keras.models import model_from_config
 
 
 # Страница с инференсом моделей
@@ -22,69 +27,80 @@ def page_predictions():
 
         # Интерактивные поля для ввода данных
         predict_input = pd.DataFrame(
-            {'time_left': [st.number_input("time_left", min_value=1.0, max_value=180.0, step=5.0, value=90.0)],
-             'ct_score': [author.data['ct_score'].mode()[0]],
-             't_score': [author.data['t_score'].mode()[0]],
-             'map': [author.data['map'].mode()[0]],
-             'ct_health': [st.number_input("ct_health", min_value=1.0, max_value=500.0, step=20.0, value=100.0)],
-             't_health': [st.number_input("t_health", min_value=1.0, max_value=500.0, step=20.0, value=100.0)],
-             'ct_armor': [author.data['ct_armor'].mode()[0]],
-             't_armor': [author.data['t_armor'].mode()[0]],
-             'ct_money': [author.data['ct_money'].mode()[0]],
-             't_money': [author.data['t_money'].mode()[0]],
-             'ct_helmets': [author.data['ct_helmets'].mode()[0]],
-             't_helmets': [author.data['t_helmets'].mode()[0]],
-             'ct_defuse_kits': [author.data['ct_defuse_kits'].mode()[0]],
-             'ct_players_alive': [st.number_input("ct_players_alive", min_value=1.0, max_value=5.0, step=1.0,
-                                                  value=1.0)],
-             't_players_alive': [st.number_input("t_players_alive", min_value=1.0, max_value=5.0, step=1.0,
-                                                 value=1.0)]})
+            {'age': [st.number_input("Возраст", min_value=16, max_value=42, step=1, value=20)],
+             'pace': [st.number_input("Скорость", min_value=24, max_value=100, step=1, value=70)],
+             'shooting': [st.number_input("Удары", min_value=15, max_value=100, step=1, value=70)],
+             'passing': [st.number_input("Пасы", min_value=24, max_value=100, step=1, value=70)],
+             'dribbling': [st.number_input("Дриблинг", min_value=23, max_value=100, step=1, value=70)],
+             'defending': [st.number_input("Защита", min_value=23, max_value=100, step=1, value=70)],
+             'physic': [st.number_input("Физика", min_value=27, max_value=100, step=1, value=70)]})
         if 'Unnamed: 0' in predict_input.columns:
             predict_input = predict_input.drop(['Unnamed: 0'], axis=1)
-
 
         st.write(predict_input)
 
         if st.button('Сделать предсказание'):
-            with open('Models/knn_model.pkl', 'rb') as file:
-                knn = pickle.load(file)
-            with open('Models/kmeans_model.pkl', 'rb') as file:
-                kmeans_model = pickle.load(file)
-            with open('Models/bagging_model.pkl', 'rb') as file:
+            with open('Models/bagging.pkl', 'rb') as file:
                 bagging_model = pickle.load(file)
-            with open('Models/gradient_model.pkl', 'rb') as file:
+            with open('Models/ridge.pkl', 'rb') as file:
+                ridge_model = pickle.load(file)
+            with open('Models/gradient.pkl', 'rb') as file:
                 gradient_model = pickle.load(file)
-            with open('Models/stacking_model.pkl', 'rb') as file:
+            with open('Models/stacking.pkl', 'rb') as file:
                 stacking_model = pickle.load(file)
-            nn_model = load_model('Models/bin_class.h5')
 
-            pred=[]
+            from keras.models import load_model
+            model_regression = load_model('Models/regression.h5')
 
-            st.header("Stacking:")
-            stacking_pred = stacking_model.predict(predict_input)[0]
+            # mm_model = joblib.load('Models/Network.pkl')
+            # nn_model = load_model('Models/regression.h5')
+            # with open('Models/model_config.json', 'r') as f:
+            #     saved_model_config = json.load(f)
+            # model = model_from_config(saved_model_config)
+
+            # model_regression = tf.keras.Sequential(
+            #     [
+            #         # Dense - полносвязный слой (каждый нейрон следующего слоя связан со всеми нейронами предыдущего)
+            #         tf.keras.layers.Dense(64, activation="relu", input_shape=(7,)),
+            #         # на втором скрытом слое будет 32 нейрона
+            #         tf.keras.layers.Dense(32, activation="linear"),
+            #         # Dropout позволяет внести фактор случайности - при обучении часть нейронов будет отключаться
+            #         # каждый нейрон, в данном случае, будет отключаться с вероятностью 0.1
+            #         tf.keras.layers.Dropout(0.1),
+            #         tf.keras.layers.Dense(16, activation="relu"),
+            #         tf.keras.layers.Dropout(0.1),
+            #         # на выходе один нейрон, функция активации не применяется
+            #         tf.keras.layers.Dense(1, activation="linear"),
+            #     ]
+            # )
+            # model_regression.summary()
+            # # компилируем
+            # model_regression.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.005),
+            #                          loss=tf.keras.losses.MeanAbsoluteError())
+            # model_regression.fit(author.X_train, author.y_train, epochs=50)
+            # model_regression.save('Models/regression.h5')
+
+            pred = []
+
+            stacking_pred = int(stacking_model.predict(predict_input)[0])
             pred.append(stacking_pred)
-            st.write(f"{stacking_pred}")
+            st.header(f"stacking: {stacking_pred}")
 
-            st.header("gradient:")
-            gradient_pred = gradient_model.predict(predict_input)[0]
+            gradient_pred = int(gradient_model.predict(predict_input)[0])
             pred.append(gradient_pred)
-            st.write(f"{gradient_pred}")
+            st.header(f"gradient boosting: {gradient_pred}")
 
-            st.header("bagging:")
-            bagging_pred = bagging_model.predict(predict_input)[0]
+            bagging_pred = int(bagging_model.predict(predict_input)[0])
             pred.append(bagging_pred)
-            st.write(f"{bagging_pred}")
+            st.header(f"bagging: {bagging_pred}")
 
-            st.header("knn:")
-            knn_pred = knn.predict(predict_input)[0]
-            pred.append(knn_pred)
-            st.write(f"{knn_pred}")
+            ridge_pred = int(ridge_model.predict(predict_input)[0])
+            pred.append(ridge_pred)
+            st.header(f"ridge: {ridge_pred}")
 
-            st.header("Binary Classification:")
-            nn_pred = int(nn_model.predict(predict_input, verbose=None))
+            nn_pred = int(model_regression.predict(predict_input, verbose=None))
             pred.append(nn_pred)
-            st.write(f"{nn_pred}")
+            st.header(f"neural network: {nn_pred}")
 
-            st.header("Final predict:")
             predict_pd = pd.DataFrame(np.array(pred))
-            st.write(f"{predict_pd.mode()[0][0]}")
+            st.header(f"Final predict: {round(predict_pd.mean()[0])}")
