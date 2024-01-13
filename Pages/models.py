@@ -3,7 +3,7 @@ import pickle
 
 import pandas as pd
 import streamlit as st
-from tensorflow.keras.layers import TFSMLayer
+from keras.layers import TFSMLayer
 
 
 # Страница с инференсом моделей
