@@ -4,7 +4,6 @@ matplotlib
 seaborn
 scikit-learn==1.2.2
 joblib
-tensorflow==2.15.0
+tensorflow
 numpy
 mlxtend
-keras==2.15.0
