@@ -1,9 +1,9 @@
 import pickle
 
-
 import pandas as pd
 import streamlit as st
-from keras.layers import TFSMLayer
+import tensorflow as tf
+import author
 
 
 # Страница с инференсом моделей
@@ -64,18 +64,23 @@ def page_predictions():
             #         tf.keras.layers.Dense(1, activation="linear"),
             #     ]
             # )
-            # model_regression.summary()
             # # компилируем
             # model_regression.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.005),
             #                          loss=tf.keras.losses.MeanAbsoluteError())
             # model_regression.fit(author.X_train, author.y_train, epochs=50, verbose=None)
             #
-            # tf.saved_model.save(model_regression, 'Models\Regression')
+            # model_regression.save('Models\Regression')
             # model_regression = tf.saved_model.load('Models\Regression')
             # model_regression.save(filepath='Models/RegressionModel')
             # model_regression = tf.keras.models.load_model('Models/Regression')
+            #
+            # @tf.function
+            # def predict_wrapper(input_data):
+            #     return model_regression(input_data)
 
-            smlayer = TFSMLayer('Models/Regression', call_endpoint='serving_default')
+            loaded_model = tf.keras.models.load_model('Models/Regression')
+
+            # smlayer = tf.cloud.TFSMLayer('Models/Regression', call_endpoint='serving_default')
             # output = smlayer(predict_input)
             # model = tf.keras.Model(inputs=predict_input, outputs=output)
             # predictions = model.predict(predict_input)
@@ -99,8 +104,8 @@ def page_predictions():
             pred.append(ridge_pred)
             st.header(f"ridge: {ridge_pred}")
 
-            nn_pred = int((smlayer(predict_input))['output_0'][0][0])
+            nn_pred = int(loaded_model.predict(predict_input)[0])
             pred.append(nn_pred)
             st.header(f"neural network: {nn_pred}")
 
-            st.header(f"Final predict: {pred}")
+            st.header(f"Final predict: {int(sum(pred) / len(pred))}")

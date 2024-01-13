@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06d3d950-48fa-48ca-a281-4e742bb8b9c9" name="Changes" comment="remake model">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Regression/fingerprint.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Regression/saved_model.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Regression/variables/variables.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Regression/variables/variables.index" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Pages/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +270,21 @@
       <option name="project" value="LOCAL" />
       <updated>1705169528005</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="remake model">
+      <created>1705170162387</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1705170162387</updated>
+    </task>
+    <task id="LOCAL-00032" summary="remake model">
+      <created>1705170417724</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1705170417724</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
