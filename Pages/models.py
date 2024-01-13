@@ -77,7 +77,7 @@ def page_predictions():
             # # компилируем
             # model_regression.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.005),
             #                          loss=tf.keras.losses.MeanAbsoluteError())
-            # model_regression.fit(author.X_train, author.y_train, epochs=50, batch_size=32)
+            # model_regression.fit(author.X_train, author.y_train, epochs=50, verbose=None)
             # model_regression.save('Models/regression.h5')
 
             pred = []
