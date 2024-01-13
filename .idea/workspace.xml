@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06d3d950-48fa-48ca-a281-4e742bb8b9c9" name="Changes" comment="remake model">
-      <change beforePath="$PROJECT_DIR$/Pages/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/models.py" afterDir="false" />
-    </list>
+    <list default="true" id="06d3d950-48fa-48ca-a281-4e742bb8b9c9" name="Changes" comment="remake model" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,7 +86,14 @@
       <option name="project" value="LOCAL" />
       <updated>1705143979767</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="remake model">
+      <created>1705145037769</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1705145037769</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
