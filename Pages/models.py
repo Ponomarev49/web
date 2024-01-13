@@ -99,7 +99,7 @@ def page_predictions():
             pred.append(ridge_pred)
             st.header(f"ridge: {ridge_pred}")
 
-            nn_pred = int((smlayer(predict_input))['output_0'].numpy()[0][0])
+            nn_pred = int((smlayer(predict_input))['output_0'][0][0])
             pred.append(nn_pred)
             st.header(f"neural network: {nn_pred}")
 
