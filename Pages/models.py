@@ -3,7 +3,8 @@ import pickle
 import numpy as np
 import pandas as pd
 import streamlit as st
-from tensorflow.keras.layers import TFSMLayer
+import tensorflow
+from keras.src.export.export_lib import TFSMLayer
 
 
 # Страница с инференсом моделей
@@ -73,7 +74,7 @@ def page_predictions():
             # tf.saved_model.save(model_regression, 'Models\Regression')
             # model_regression = tf.saved_model.load('Models\Regression')
             # model_regression.save(filepath='Models/RegressionModel')
-            #model_regression = tf.keras.models.load_model('Models/Regression')
+            # model_regression = tf.keras.models.load_model('Models/Regression')
 
             smlayer = TFSMLayer('Models/Regression', call_endpoint='serving_default')
             # output = smlayer(predict_input)

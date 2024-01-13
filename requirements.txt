@@ -5,3 +5,4 @@ seaborn
 scikit-learn==1.2.2
 tensorflow
 numpy~=1.25.2
+keras~=3.0.2
