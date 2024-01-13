@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="06d3d950-48fa-48ca-a281-4e742bb8b9c9" name="Changes" comment="remake model">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/models.py" afterDir="false" />
-    </list>
+    <list default="true" id="06d3d950-48fa-48ca-a281-4e742bb8b9c9" name="Changes" comment="remake model" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -230,7 +227,28 @@
       <option name="project" value="LOCAL" />
       <updated>1705168363885</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="remake model">
+      <created>1705168842122</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1705168842122</updated>
+    </task>
+    <task id="LOCAL-00027" summary="remake model">
+      <created>1705169030958</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1705169030958</updated>
+    </task>
+    <task id="LOCAL-00028" summary="remake model">
+      <created>1705169273664</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1705169273664</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
