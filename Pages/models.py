@@ -3,7 +3,6 @@ import pickle
 import pandas as pd
 import streamlit as st
 import tensorflow as tf
-import author
 
 
 # Страница с инференсом моделей
@@ -40,51 +39,7 @@ def page_predictions():
                 gradient_model = pickle.load(file)
             with open('Models/stacking.pkl', 'rb') as file:
                 stacking_model = pickle.load(file)
-
-            # from keras.models import load_model
-            # model_regression = load_model('Models/regression.h5')
-
-            # nn_model = load_model('Models/regression.h5')
-            # with open('Models/model_config.json', 'r') as f:
-            #     saved_model_config = json.load(f)
-            # model = model_from_config(saved_model_config)
-
-            # model_regression = tf.keras.Sequential(
-            #     [
-            #         # Dense - полносвязный слой (каждый нейрон следующего слоя связан со всеми нейронами предыдущего)
-            #         tf.keras.layers.Dense(64, activation="relu", input_shape=(7,)),
-            #         # на втором скрытом слое будет 32 нейрона
-            #         tf.keras.layers.Dense(32, activation="linear"),
-            #         # Dropout позволяет внести фактор случайности - при обучении часть нейронов будет отключаться
-            #         # каждый нейрон, в данном случае, будет отключаться с вероятностью 0.1
-            #         tf.keras.layers.Dropout(0.1),
-            #         tf.keras.layers.Dense(16, activation="relu"),
-            #         tf.keras.layers.Dropout(0.1),
-            #         # на выходе один нейрон, функция активации не применяется
-            #         tf.keras.layers.Dense(1, activation="linear"),
-            #     ]
-            # )
-            # # компилируем
-            # model_regression.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.005),
-            #                          loss=tf.keras.losses.MeanAbsoluteError())
-            # model_regression.fit(author.X_train, author.y_train, epochs=50, verbose=None)
-            #
-            # model_regression.save('Models\Regression')
-            # model_regression = tf.saved_model.load('Models\Regression')
-            # model_regression.save(filepath='Models/RegressionModel')
-            # model_regression = tf.keras.models.load_model('Models/Regression')
-            #
-            # @tf.function
-            # def predict_wrapper(input_data):
-            #     return model_regression(input_data)
-
             loaded_model = tf.keras.models.load_model('Models/Regression')
-
-            # smlayer = tf.cloud.TFSMLayer('Models/Regression', call_endpoint='serving_default')
-            # output = smlayer(predict_input)
-            # model = tf.keras.Model(inputs=predict_input, outputs=output)
-            # predictions = model.predict(predict_input)
-            # nn_pred=predictions[0]
 
             pred = []
 
