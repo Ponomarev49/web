@@ -1,17 +1,10 @@
 import pickle
-import joblib
+
 import numpy as np
 import pandas as pd
 import streamlit as st
 import tensorflow as tf
-
-import keras.models
-import author
-
-
-# import json
-# from keras.models import load_model
-# from tensorflow.python.keras.models import model_from_config
+from keras.src.export.export_lib import TFSMLayer
 
 
 # Страница с инференсом моделей
@@ -49,10 +42,9 @@ def page_predictions():
             with open('Models/stacking.pkl', 'rb') as file:
                 stacking_model = pickle.load(file)
 
-            from keras.models import load_model
-            model_regression = load_model('Models/regression.h5')
+            # from keras.models import load_model
+            # model_regression = load_model('Models/regression.h5')
 
-            # mm_model = joblib.load('Models/Network.pkl')
             # nn_model = load_model('Models/regression.h5')
             # with open('Models/model_config.json', 'r') as f:
             #     saved_model_config = json.load(f)
@@ -78,7 +70,17 @@ def page_predictions():
             # model_regression.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.005),
             #                          loss=tf.keras.losses.MeanAbsoluteError())
             # model_regression.fit(author.X_train, author.y_train, epochs=50, verbose=None)
-            # model_regression.save('Models/regression.h5')
+            #
+            # tf.saved_model.save(model_regression, 'Models\Regression')
+            # model_regression = tf.saved_model.load('Models\Regression')
+            # model_regression.save(filepath='Models/RegressionModel')
+            #model_regression = tf.keras.models.load_model('Models/Regression')
+
+            smlayer = TFSMLayer('Models/Regression', call_endpoint='serving_default')
+            # output = smlayer(predict_input)
+            # model = tf.keras.Model(inputs=predict_input, outputs=output)
+            # predictions = model.predict(predict_input)
+            # nn_pred=predictions[0]
 
             pred = []
 
@@ -98,7 +100,7 @@ def page_predictions():
             pred.append(ridge_pred)
             st.header(f"ridge: {ridge_pred}")
 
-            nn_pred = int(model_regression.predict(predict_input, verbose=None))
+            nn_pred = int((smlayer(predict_input))['output_0'].numpy()[0][0])
             pred.append(nn_pred)
             st.header(f"neural network: {nn_pred}")
 
