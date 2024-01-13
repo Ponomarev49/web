@@ -1,9 +1,9 @@
 import pickle
 
-import numpy as np
+
 import pandas as pd
 import streamlit as st
-from keras.src.export.export_lib import TFSMLayer
+from tensorflow.keras.layers import TFSMLayer
 
 
 # Страница с инференсом моделей
@@ -103,5 +103,4 @@ def page_predictions():
             pred.append(nn_pred)
             st.header(f"neural network: {nn_pred}")
 
-            predict_pd = pd.DataFrame(np.array(pred))
-            st.header(f"Final predict: {round(predict_pd.mean()[0])}")
+            st.header(f"Final predict: {pred}")
