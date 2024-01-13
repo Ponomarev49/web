@@ -5,4 +5,4 @@ seaborn
 scikit-learn
 tensorflow
 numpy
-keras
+keras==3.0.2
