@@ -3,6 +3,7 @@ import pickle
 import pandas as pd
 import streamlit as st
 import tensorflow as tf
+from PIL import Image
 
 
 # Страница с инференсом моделей
@@ -11,6 +12,13 @@ def page_predictions():
 
     # Виджет для загрузки файла
     uploaded_file = st.file_uploader("Загрузите ваш CSV файл", type="csv")
+
+    st.header(
+        "Попробуем предсказать общий рейтинг игрока по его основным характеристикам, используя модели машинного "
+        "обучения")
+
+    resized_img = Image.open('Images/predict.jpg').resize((400, 400))
+    st.image(resized_img)
 
     # Интерактивный ввод данных, если файл не загружен
     if uploaded_file is None:
@@ -45,7 +53,7 @@ def page_predictions():
 
             stacking_pred = int(stacking_model.predict(predict_input)[0])
             pred.append(stacking_pred)
-            st.header(f"stacking: {stacking_pred}")
+            st.header(f"stacking : {stacking_pred}")
 
             gradient_pred = int(gradient_model.predict(predict_input)[0])
             pred.append(gradient_pred)
@@ -63,4 +71,4 @@ def page_predictions():
             pred.append(nn_pred)
             st.header(f"neural network: {nn_pred}")
 
-            st.header(f"Final predict: {int(sum(pred) / len(pred))}")
+            st.header(f"Итоговое предсказание общего рейтинга игрока: {int(sum(pred) / len(pred))}")
