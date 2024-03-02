@@ -5,20 +5,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="06d3d950-48fa-48ca-a281-4e742bb8b9c9" name="Changes" comment="remake model">
+      <change afterPath="$PROJECT_DIR$/Data/new_apple.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Data/new_laptops.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Models/rbf.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pages/regression.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pages/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Data/players.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Boxplot/box_age.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Boxplot/box_defending.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Boxplot/box_dribbling.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Boxplot/box_overall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Boxplot/box_pace.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Boxplot/box_passing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Boxplot/box_physic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Boxplot/box_shooting.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Hist/hist_age.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Hist/hist_defending.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Hist/hist_dribbling.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Hist/hist_overall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Hist/hist_pace.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Hist/hist_passing.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Hist/hist_physic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Hist/hist_shooting.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/heatmap.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/pie.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/players.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/predict.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Regression/fingerprint.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Regression/keras_metadata.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Regression/saved_model.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Regression/variables/variables.data-00000-of-00001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/Regression/variables/variables.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/bagging.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/gradient.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/ridge.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Models/stacking.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/author.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/author.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/info.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Pages/classification.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pages/visualisation.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Pages/models.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Pages/classification.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -44,6 +87,9 @@
       <recent name="C:\Users\Миша\Desktop\web\Models" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\web\Images" />
+      <recent name="C:\web\Models" />
+      <recent name="C:\web\Data" />
       <recent name="C:\Users\Миша\Desktop\web\Models" />
     </key>
   </component>
@@ -315,7 +361,21 @@
       <option name="project" value="LOCAL" />
       <updated>1705177122410</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="remake model">
+      <created>1705419741445</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1705419741445</updated>
+    </task>
+    <task id="LOCAL-00039" summary="remake model">
+      <created>1705419749411</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1705419749411</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
